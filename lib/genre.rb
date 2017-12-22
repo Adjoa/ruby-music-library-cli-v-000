@@ -23,4 +23,8 @@ class Genre
   def self.create(name)
     self.new(name).tap {|genre| genre.save}
   end
+
+  def artists
+    self.songs.collect {|song| song.artist}.uniq
+  end
 end
